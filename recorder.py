@@ -61,3 +61,7 @@ if __name__ == "__main__":
     if not os.path.isfile(DB_NAME):
         init_db()
     write_measurements()
+
+    sense.set_rotation(90)
+    sense.low_light = True
+    sense.show_message(str(int(get_cpu_temperature())), text_colour=[0, 0, 250], scroll_speed=0.2)
