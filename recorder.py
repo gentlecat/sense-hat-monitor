@@ -64,4 +64,9 @@ if __name__ == "__main__":
 
     sense.set_rotation(90)
     sense.low_light = True
-    sense.show_message(str(int(get_cpu_temperature())), text_colour=[0, 0, 250], scroll_speed=0.2)
+    message = "-- T(H): %s - T(P): %s -- CPU: %s --" % (
+            int(sense.get_temperature_from_humidity()),
+            int(sense.get_temperature_from_pressure()),
+            int(get_cpu_temperature()),
+    )
+    sense.show_message(message, text_colour=[0, 0, 250], scroll_speed=0.25)
